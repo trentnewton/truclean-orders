@@ -308,15 +308,15 @@
             <link rel="stylesheet" href="dist/assets/css/app.css" />
         </head>
         <body>
-        <div class="grid-x">
-            <div class="cell small-6 right-border">';
-                testGetSalesOrders();
-            echo'</div>
-            <div class="cell small-6">';
-                testGetSalesShipments();
-            echo'</div>
-        </div>
-        <script src="dist/assets/js/app.js"></script>
+            <div class="grid-x">
+                <div class="cell small-6 right-border">';
+                    testGetSalesOrders();
+                echo'</div>
+                <div class="cell small-6">';
+                    testGetSalesShipments();
+                echo'</div>
+            </div>
+            <script src="dist/assets/js/app.js"></script>
         </body>
     </html>
     ';
