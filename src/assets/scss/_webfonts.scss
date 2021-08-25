@@ -1,0 +1,55 @@
+@font-face {
+	font-family: century-gothic;
+	src:
+		url('#{$asset-path}/fonts/cgr.woff2') format("woff2"),
+		url('#{$asset-path}/fonts/cgr.woff') format("woff"),
+		url('#{$asset-path}/fonts/cgr.otf') format("opentype");
+	font-style: normal;
+	font-weight: 500;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: proxima-nova;
+	src:
+		url('#{$asset-path}/fonts/pnr.woff2') format("woff2"),
+		url('#{$asset-path}/fonts/pnr.woff') format("woff"),
+		url('#{$asset-path}/fonts/pnr.otf') format("opentype");
+	font-style: normal;
+	font-weight: 500;
+	font-display: swap;
+}
+
+
+@font-face {
+	font-family: proxima-nova;
+	src:
+		url('#{$asset-path}/fonts/pnb.woff2') format("woff2"),
+		url('#{$asset-path}/fonts/pnb.woff') format("woff"),
+		url('#{$asset-path}/fonts/pnb.otf') format("opentype");
+	font-style: normal;
+	font-weight: 700;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: proxima-nova;
+	src:
+		url('#{$asset-path}/fonts/pnri.woff2') format("woff2"),
+		url('#{$asset-path}/fonts/pnri.woff') format("woff"),
+		url('#{$asset-path}/fonts/pnri.otf') format("opentype");
+	font-style: italic;
+	font-weight: 500;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: proxima-nova;
+	src:
+		url('#{$asset-path}/fonts/pnbi.woff2') format("woff2"),
+		url('#{$asset-path}/fonts/pnbi.woff') format("woff"),
+		url('#{$asset-path}/fonts/pnbi.otf') format("opentype");
+	font-style: italic;
+	font-weight: 700;
+	font-display: swap;
+}

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+
+
+  <title>CodePen - Auto Scroll in Div in pure Javascript</title>
+  
+  
+  
+  
+<style>
+ .hide {
+     display: none;
+ }
+</style>
+
+</head>
+
+<body>
+    <table class="sales-shipments">
+        <thead>
+            <tr>
+                <th class="shipment-customer-name">Customer Name</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="replacetext">replacetextSO-00013045</td>
+            </tr>
+            <tr>
+                <td class="replacetext">replacetextSO-00013041</td>
+            </tr>
+            <tr>
+                <td class="replacetext">replacetextSO-00013039</td>
+            </tr>
+            <tr>
+                <td class="replacetext">replacetextSO-00013035</td>
+            </tr>
+            <tr>
+                <td class="replacetext">replacetextSO-00013017</td>
+            </tr>
+            <tr>
+                <td class="replacetext">replacetextSO-00013016</td>
+            </tr>
+            <tr>
+                <td class="replacetext">replacetextSO-00012998</td>
+            </tr>
+            <tr>
+                <td class="replacetext">replacetextSO-00012995</td>
+            </tr>
+            <tr>
+                <td class="replacetext">replacetextSO-00012991</td>
+            </tr>
+            <tr>
+                <td class="replacetext">replacetextSO-00012988</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div id="source-elements">
+        <div class="sourcetext SO-00013045">THE COFFEE CLUB DFO JINDALEE</div>
+        <div class="sourcetext SO-00013041">WILD CANARY C/ BROOKFIELD GARDEN CENTRE</div>
+        <div class="sourcetext SO-00013039">JAVA LOUNGE 2</div>
+        <div class="sourcetext SO-00013038">Capricorn Adventist Retirement Village</div>
+        <div class="sourcetext SO-00013035">GRUBLESS CLEANING SUPPLIES</div>
+        <div class="sourcetext SO-00013017">Victoria Point Adventist Retirement Village</div>
+        <div class="sourcetext SO-00013016">BIG MAMMA'S WASH HOUSE</div>
+        <div class="sourcetext SO-00012998">STORY BRIDGE HOTEL</div>
+        <div class="sourcetext SO-00012995">NORTHSHORE HARBOUR CAFE</div>
+        <div class="sourcetext SO-00012991">KEMP AGENCIES</div>
+        <div class="sourcetext SO-00012988">FISH KITCHEN DUTTON PARK SEAFOODS</div>
+    </div>
+  
+      <script>
+            function replace() {
+                const replaces = document.querySelectorAll('.replacetext');
+                const sources = document.querySelectorAll('.sourcetext');
+
+                replaces.forEach(e => {
+                    const source = '.sourcetext.'+e.classList[1];
+                    e.innerText = document.querySelector(source).innerText;
+                });
+            }
+
+            // document.addEventListener("DOMContentLoaded", function(event) {
+            //     // window.scrollTo(0,document.body.scrollHeight);
+            //     // function replace() {
+            //     //     const replaces = document.querySelectorAll('.replacetext');
+            //     //     const sources = document.querySelectorAll('.sourcetext');
+
+            //     //     replaces.forEach(e => {
+            //     //         const source = '.sourcetext.'+e.classList[1];
+            //     //         e.innerText = document.querySelector(source).innerText;
+            //     //     });
+            //     // }
+            // });
+
+            document.addEventListener("DOMContentLoaded", replace);
+    </script>
+
+  
+
+</body>
+
+</html>

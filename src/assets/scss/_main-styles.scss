@@ -1,0 +1,119 @@
+// a {
+// 	@extend a;
+// 	transition: all $transition-time;
+// }
+
+::selection {
+	background: $primary-color;
+	color: $white;
+}
+
+:focus {
+	outline-color: #d9b491;
+	outline-style: solid;
+	outline-width: medium;
+}
+
+svg {
+	vertical-align: middle;
+}
+
+caption {
+	background-color: $white;
+}
+
+.icon {
+	width: 1em;
+	height: 1em;
+	display: inline-block;
+	fill: currentColor;
+}
+
+.alert {
+	color: $alert-color;
+}
+
+.success {
+	color: $success-color;
+}
+
+.show-for-sr,
+.show-on-focus {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0
+}
+
+.show-on-focus {
+
+	&:active,
+	&:focus {
+		position: static;
+	    width: auto;
+	    height: auto;
+	    overflow: visible;
+	    clip: auto;
+	    white-space: normal;
+	}
+
+}
+
+.hide {
+    display: none;
+}
+
+.Parked.button {
+	background-color: #f06e23;
+}
+
+.Placed.button {
+	background-color: #0c81a6;
+}
+
+.Backordered.button {
+	background-color: #999;
+}
+
+.Picked.button {
+	background-color: rgb(137, 100, 225);
+}
+
+
+
+
+button.\36 2987aee-a1cb-4581-88b4-22c646c3cafc.button {
+	background-color: $secondary-color;
+}
+
+.da2524ac-eba9-4e4a-99be-8a2e2b596e80.button {
+	background-color: #ffc107;
+	color: $black;
+}
+
+.c9362812-5df2-49a4-acea-b0b9c0c2a0e0.button {
+	background-color: #8bc34a;
+}
+
+button.\39 1d8a1d6-489c-4ca1-bc54-01f36f530080.button {
+	background-color: #2196f3;
+}
+
+
+.fixed-caption {
+	position: sticky;
+	top: 0;
+}
+
+.fixed-thead {
+	position: sticky;
+	top: 92px;
+}
+
+.right-border {
+	border-right: 1px solid $medium-gray;
+}
