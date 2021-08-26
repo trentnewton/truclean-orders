@@ -1,4 +1,5 @@
 <?php
+ error_reporting(0);
   // configuration data
   // must use your own id and key with no extra whitespace
   $api = "https://api.unleashedsoftware.com/";
@@ -267,8 +268,6 @@
                 $shipmentnumber = $shipment->ShipmentNumber;
                 $date = $shipment->DispatchDate;
                 $trackingnumber = $shipment->TrackingNumber;
-                $shippingcompany = $shipment->ShippingCompany->Name;
-                $shippingguid = $shipment->ShippingCompany->Guid;
                 $ordernumber = $shipment->OrderNumber;
                 $status = $shipment->ShipmentStatus;
                 if ($date != null) {
@@ -277,6 +276,13 @@
                     $dispatchdate = date("D d/m", $resultdate);
                 } else {
                     $dispatchdate = "N/A";
+                }
+                if ($shipment->ShippingCompany->Name == null) {
+                    $shippingcompany = "Magic Carpet!";
+                    $shippingguid = "magic-carpet";
+                } else {
+                    $shippingcompany = $shipment->ShippingCompany->Name;
+                    $shippingguid = $shipment->ShippingCompany->Guid;
                 }
                 
                 echo "
