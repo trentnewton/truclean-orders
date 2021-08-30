@@ -1,5 +1,5 @@
 <?php
- error_reporting(0);
+//  error_reporting(0);
   // configuration data
   // must use your own id and key with no extra whitespace
   $api = "https://api.unleashedsoftware.com/";
@@ -231,7 +231,14 @@
                 </tr>
                 ";
             }
-        } 
+        }
+        if ($json == null) {
+          echo "
+          <tr>
+            <td colspan='6' class='text-center'><button type='button' class='alert button'>ERROR WITH FEED! (not Trent's fault though)</button></td>
+          </tr>
+          ";
+        }
         echo "	
             </tbody>
         </table>"; 
@@ -262,7 +269,8 @@
                 </tr>
             </thead>
             <tbody>
-        ";   
+        ";
+        // echo json_encode($json);
         foreach ($json->Items as $shipment) {
             if ($shipment->ShipmentStatus != "Dispatched" && $shipment->ShipmentStatus != "Deleted") {
                 $shipmentnumber = $shipment->ShipmentNumber;
@@ -296,7 +304,14 @@
                 </tr>
                 ";
             }
-        } 
+        }
+        if ($json == null) {
+          echo "
+          <tr>
+            <td colspan='6' class='text-center'><button type='button' class='alert button'>ERROR WITH FEED! (not Trent's fault though)</button></td>
+          </tr>
+          ";
+        }
         echo "	
             </tbody>
         </table>";   
