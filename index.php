@@ -1,5 +1,5 @@
 <?php
-//  error_reporting(0);
+ error_reporting(0);
   // configuration data
   // must use your own id and key with no extra whitespace
   $api = "https://api.unleashedsoftware.com/";
