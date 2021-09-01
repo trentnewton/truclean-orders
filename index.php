@@ -67,35 +67,6 @@
     }
   }
 
-  // POST something to the API
-  // - $request is only any part of the url after the "?"
-  // - use $request = "" if there is no request portion
-  // - for POST $request will usually be an empty string
-  // - $request never includes the "?"
-  // Format agnostic method.  Pass in the required $format of "json" or "xml"
-  function post($id, $key, $endpoint, $format, $dataId, $data) {
-    if (!isset($dataId, $data)) { return null; }
-
-    try {
-      // calculate API signature
-      $signature = getSignature("", $key);
-      // create the curl object.
-      // - POST always requires the object's id
-      $curl = getCurl($id, $key, $signature, "$endpoint/$dataId", "", $format);
-      // set extra curl options required by POST
-      curl_setopt($curl, CURLOPT_POST, 1);
-      curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
-      // POST something
-      $curl_result = curl_exec($curl);
-      error_log($curl_result);
-      curl_close($curl);
-      return $curl_result;
-    }
-    catch (Exception $e) {
-      error_log('Error: ' + $e);
-    }
-  }
-
   // GET in XML format
   // - gets the data from the API and converts it to an XML object
   function getXml($id, $key, $endpoint, $request) {
@@ -105,47 +76,11 @@
     return new SimpleXMLElement($xml);
   }
 
-  // POST in XML format
-  // - the object to POST must be a valid XML object. Not stdClass, not array, not associative.
-  // - converts the object to string and POSTs it to the API
-  function postXml($id, $key, $endpoint, $dataId, $data) {
-
-    $xml = $data->asXML();
-
-    // must remove the <xml version="1.0"> node if present, the API does not want it
-    $pos = strpos($xml, '<?xml version="1.0"?>');
-    if ($pos !== false) {
-      $xml = str_replace('<?xml version="1.0"?>', '', $xml);
-    }
-
-    // if the data does not have the correct xml namespace (xmlns) then add it
-    $pos1 = strpos($xml, 'xmlns="http://api.unleashedsoftware.com/version/1"');
-    if ($pos1 === false) {
-      // there should be a better way than this
-      // using preg_replace with count = 1 will only replace the first occurance
-      $xml = preg_replace(' />/i',' xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://api.unleashedsoftware.com/version/1">',$xml,1);
-    }
-
-    // POST it
-    $posted = post($id, $key, $endpoint, "xml", $dataId, $xml );
-    // Convert to XML object and return
-    // - the API always returns the POSTed object back as confirmation
-    return new SimpleXMLElement($posted);
-  }
-
   // GET in JSON format
   // - gets the data from the API and converts it to an stdClass object
   function getJson($id, $key, $endpoint, $request) {
     // GET it, decode it, return it
     return json_decode(get($id, $key, $endpoint, $request, "json"));
-  }
-
-  // POST in JSON format
-  // - the object to POST must be a valid stdClass object. Not array, not associative.
-  // - converts the object to string and POSTs it to the API
-  function postJson($id, $key, $endpoint, $dataId, $data) {
-    // POST it, return the API's response
-    return post($id, $key, $endpoint, "json", $dataId, json_encode($data));
   }
 
   // Example method: GET customer list in xml or json
@@ -178,7 +113,6 @@
       return getJson($apiId, $apiKey, "SalesShipments", "");
   }
 
-
   // -------------------------------------------------------
   // TEST all methods and show the outputs
   // -------------------------------------------------------
@@ -203,7 +137,7 @@
             <tbody>
         ";   
         foreach ($json->Items as $order) {
-            if ($order->OrderStatus != "Completed") {
+            if ($order->OrderStatus != "Completed" && $order->Warehouse->WarehouseCode == "W1") {
                 $ordernumber = $order->OrderNumber;
                 $date = $order->OrderDate;
                 $reqdate = $order->RequiredDate;
@@ -239,7 +173,7 @@
           </tr>
           ";
         }
-        echo "	
+        echo "
             </tbody>
         </table>"; 
         echo "<div class='source-elements hide'>";
@@ -314,7 +248,7 @@
         }
         echo "	
             </tbody>
-        </table>";   
+        </table>";
     }
 
     // testGetCustomers();
