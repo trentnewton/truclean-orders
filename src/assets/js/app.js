@@ -1,5 +1,9 @@
 // import $ from 'jquery';
 import 'what-input';
+// import hmacSHA256 from 'crypto-js/hmac-sha256';
+// import Base64 from 'crypto-js/enc-base64';
+
+
 
 // Foundation JS relies on a global variable. In ES6, all imports are hoisted
 // to the top of the file so if we used `import` to import Foundation,
@@ -12,6 +16,8 @@ import 'what-input';
 // If you want to pick and choose which modules to include, comment out the above and uncomment
 // the line below
 //import './lib/foundation-explicit-pieces';
+// import './lib/hmac-sha256';
+// import './lib/enc-base64-min';
 
 
 // $(document).foundation();
