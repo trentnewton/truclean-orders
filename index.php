@@ -226,6 +226,35 @@
                     $shippingcompany = $shipment->ShippingCompany->Name;
                     $shippingguid = $shipment->ShippingCompany->Guid;
                 }
+
+                if ($shipment->ShippingCompany->Guid == "0b9b7721-f606-4bfd-b424-25455c1241b4") {
+                  if ($shipment->TrackingNumber == null) {
+                    $trackingnumber = "0402 794 437";
+                  } else {
+                    $trackingnumber = $shipment->TrackingNumber;
+                  }
+                }
+                if ($shipment->ShippingCompany->Guid == "a03ef2d9-f865-452e-8d91-c39e75a974b9") {
+                  if ($shipment->TrackingNumber == null) {
+                    $trackingnumber = "0411 532 195";
+                  } else {
+                    $trackingnumber = $shipment->TrackingNumber;
+                  }
+                }
+                if ($shipment->ShippingCompany->Guid == "62987aee-a1cb-4581-88b4-22c646c3cafc") {
+                  if ($shipment->TrackingNumber == null) {
+                    $trackingnumber = "1300 652 833";
+                  } else {
+                    $trackingnumber = $shipment->TrackingNumber;
+                  }
+                }
+                if ($shipment->ShippingCompany->Guid == "77a7ca28-c52e-4a85-b586-d6a6ad0e52a9") {
+                  if ($shipment->TrackingNumber == null) {
+                    $trackingnumber = "000";
+                  } else {
+                    $trackingnumber = $shipment->TrackingNumber;
+                  }
+                }
                 
                 echo "
                 <tr>
@@ -262,7 +291,8 @@
             <title>Truclean Order Updates</title>
             <link rel="stylesheet" href="dist/assets/css/app.css" />
         </head>
-        <body>
+        <body onload="startTime()">
+            <div id="clock" class="clock"></div>
             <div class="grid-x">
                 <div class="cell small-6 right-border">';
                     testGetSalesOrders();
@@ -272,6 +302,23 @@
                 echo'</div>
             </div>
             <script src="dist/assets/js/app.js"></script>
+            <script>
+              function startTime() {
+                const today = new Date();
+                let h = today.getHours();
+                let m = today.getMinutes();
+                let s = today.getSeconds();
+                m = checkTime(m);
+                s = checkTime(s);
+                document.getElementById("clock").innerHTML =  h + ":" + m + ":" + s;
+                setTimeout(startTime, 1000);
+              }
+
+              function checkTime(i) {
+                if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+                return i;
+              }
+            </script>
         </body>
     </html>
     ';

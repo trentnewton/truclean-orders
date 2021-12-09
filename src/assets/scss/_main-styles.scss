@@ -3,6 +3,10 @@
 // 	transition: all $transition-time;
 // }
 
+// body {
+// 	overflow: hidden;
+// }
+
 ::selection {
 	background: $primary-color;
 	color: $white;
@@ -112,6 +116,21 @@ button.\34 21b0aef-b5a0-40b8-b257-7c03b23ee838.button {
 	background-color: #e91e63;
 }
 
+button.a03ef2d9-f865-452e-8d91-c39e75a974b9 {
+	background-color: violet;
+	color: $black;
+}
+
+button.\30 b9b7721-f606-4bfd-b424-25455c1241b4.button {
+	background-color: lightsteelblue;
+    color: $black;
+}
+
+button.\37 7a7ca28-c52e-4a85-b586-d6a6ad0e52a9.button {
+    background-color: yellowgreen;
+    color: $black;
+}
+
 button.\32 6b18610-70bc-45d9-9a0e-f19f85e89e8e.button {
 	background-color: #009688;
 }
@@ -156,4 +175,14 @@ button.magic-carpet.button {
 
 .right-border {
 	border-right: 1px solid $medium-gray;
+}
+
+.clock {
+	position: fixed;
+    z-index: 10;
+    padding: 10px;
+    font-size: rem-calc(31px);
+    background-color: $secondary-color;
+    color: $white;
+	width: rem-calc(134px);
 }

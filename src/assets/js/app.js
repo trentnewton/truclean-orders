@@ -71,8 +71,10 @@ document.addEventListener("DOMContentLoaded", replace);
 document.addEventListener("DOMContentLoaded", function(event) {
     // window.scrollTo(0,document.body.scrollHeight);
     // window.scrollTo(0,document.body.scrollHeight);
-    setTimeout(function (){location.reload()},30000);
 
+    //refresh page
+    setTimeout(function (){location.reload()},30000);
+    // timezone clock
 });
 
 // function pageScroll() {
