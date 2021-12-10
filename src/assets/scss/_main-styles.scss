@@ -180,9 +180,12 @@ button.magic-carpet.button {
 .clock {
 	position: fixed;
     z-index: 10;
-    padding: 10px;
-    font-size: rem-calc(31px);
+    // padding: 10px;
+    // font-size: rem-calc(31px);
     background-color: $secondary-color;
-    color: $white;
+    // color: $white;
 	width: rem-calc(134px);
+	height: rem-calc(70px);
 }
+
+

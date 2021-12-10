@@ -291,8 +291,8 @@
             <title>Truclean Order Updates</title>
             <link rel="stylesheet" href="dist/assets/css/app.css" />
         </head>
-        <body onload="startTime()">
-            <div id="clock" class="clock"></div>
+        <body>
+            <iframe class="clock" src="https://free.timeanddate.com/clock/i83sim51/n47/tlau/fn16/fs32/fcfff/tct/pct/th1" frameborder="0" allowtransparency="true"></iframe>
             <div class="grid-x">
                 <div class="cell small-6 right-border">';
                     testGetSalesOrders();
@@ -302,46 +302,6 @@
                 echo'</div>
             </div>
             <script src="dist/assets/js/app.js"></script>
-            <script>
-              var clockID;
-              var yourTimeZoneFrom = +10.00; //time zone value where you are at
-              
-              var d = new Date();  
-              //get the timezone offset from local time in minutes
-              var tzDifference = yourTimeZoneFrom * 60 + d.getTimezoneOffset();
-              //convert the offset to milliseconds, add to targetTime, and make a new Date
-              var offset = tzDifference * 60 * 1000;
-              
-              function UpdateClock() {
-                  var tDate = new Date(new Date().getTime()+offset);
-                  var in_hours = tDate.getHours()
-                  var in_minutes=tDate.getMinutes();
-                  var in_seconds= tDate.getSeconds();
-              
-                  if(in_minutes < 10)
-                      in_minutes = "0"+in_minutes;
-                  if(in_seconds<10)   
-                      in_seconds = "0"+in_seconds;
-                  if(in_hours<10) 
-                      in_hours = "0"+in_hours;
-              
-                document.getElementById("clock").innerHTML = "" 
-                                + in_hours + ":" 
-                                + in_minutes + ":" 
-                                + in_seconds;
-              
-              }
-              function StartClock() {
-                clockID = setInterval(UpdateClock, 500);
-              }
-              
-              function KillClock() {
-                clearTimeout(clockID);
-              }
-              window.onload=function() {
-                StartClock();
-              }
-            </script>
         </body>
     </html>
     ';
