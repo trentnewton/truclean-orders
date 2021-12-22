@@ -154,12 +154,18 @@
                 } else {
                     $orderdate = "N/A";
                 }
+                $time = time();
+                if ($time >= $reqresultdate) {
+                  $reqdatealert = " alert";
+                } else {
+                  $reqdatealert = "";
+                }
                 echo "
                 <tr>
                     <td>$ordernumber</td>
                     <td>$name</td>
                     <td>$orderdate</td>
-                    <td>$req</td>
+                    <td class='required-date$reqdatealert'>$req</td>
                     <td>$ref</td>
                     <td><button type='button' class='$status button'>$status</button></td>
                 </tr>
