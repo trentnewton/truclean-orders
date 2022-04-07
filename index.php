@@ -234,7 +234,7 @@
                     $shippingguid = $shipment->ShippingCompany->Guid;
                 }
                 if ($shipment->NumberOfPackages == null) {
-                    $packages = "9000";
+                    $packages = "I Don't Know";
                 } else {
                     $packages = $shipment->NumberOfPackages;
                 }
