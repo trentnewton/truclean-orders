@@ -204,6 +204,7 @@
                     <th class='shipment-customer-name'>Customer</th>
                     <th>Dispatch Date</th>
                     <th>Tracking Number</th>
+                    <th>Number of Packages</th>
                     <th>Shipping Company</th>
                     <th>Status</th>
                 </tr>
@@ -231,6 +232,11 @@
                 } else {
                     $shippingcompany = $shipment->ShippingCompany->Name;
                     $shippingguid = $shipment->ShippingCompany->Guid;
+                }
+                if ($shipment->NumberOfPackages == null) {
+                    $packages = "9000";
+                } else {
+                    $packages = $shipment->NumberOfPackages;
                 }
 
                 if ($shipment->ShippingCompany->Guid == "0b9b7721-f606-4bfd-b424-25455c1241b4") {
@@ -268,6 +274,7 @@
                     <td class='replacetext $ordernumber'>replacetext$ordernumber</td>
                     <td>$dispatchdate</td>
                     <td>$trackingnumber</td>
+                    <td>$packages</td>
                     <td><button type='button' class='$shippingguid button'>$shippingcompany</button></td>
                     <td><button type='button' class='$status button'>$status</button></td>
                 </tr>
