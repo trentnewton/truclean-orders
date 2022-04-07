@@ -204,7 +204,7 @@
                     <th class='shipment-customer-name'>Customer</th>
                     <th>Dispatch Date</th>
                     <th>Tracking Number</th>
-                    <th>Number of Packages</th>
+                    <th>Number of Packages/Pallets</th>
                     <th>Shipping Company</th>
                     <th>Status</th>
                 </tr>
