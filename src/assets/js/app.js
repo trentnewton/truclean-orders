@@ -73,6 +73,9 @@ document.addEventListener("DOMContentLoaded", function(event) {
     // window.scrollTo(0,document.body.scrollHeight);
 
     //refresh page
+    window.onbeforeunload = function () {
+        window.scrollTo(0, 0);
+      }
     setTimeout(function (){location.reload()},30000);
     // timezone clock
 });
